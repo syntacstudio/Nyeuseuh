@@ -44,4 +44,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Role');
     }
+    /**
+     * Check one role
+     * @param string $role
+     */
+    public function hasRole($role)
+    {
+        return null !== $this->roles()->where('name', $role)->first();
+    }
 }
