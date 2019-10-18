@@ -1,7 +1,8 @@
 <?php
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+ * Route the static pages
+ */
+Route::view('/', 'welcome');
 
 Auth::routes();
 
