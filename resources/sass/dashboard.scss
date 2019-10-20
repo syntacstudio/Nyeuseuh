@@ -1,0 +1,24 @@
+// import line-awesome
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css');
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+
+// Import Custom SB Admin 2 Variables (Overrides Default Bootstrap Variables)
+@import "./dashboard/variables.scss";
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Import Custom SB Admin 2 Mixins and Components
+@import "./dashboard/mixins.scss";
+@import "./dashboard/global.scss";
+@import "./dashboard/utilities.scss";
+
+// Custom Components
+@import "./dashboard/dropdowns.scss";
+@import "./dashboard/navs.scss";
+@import "./dashboard/buttons.scss";
+@import "./dashboard/cards.scss";
+@import "./dashboard/charts.scss";
+@import "./dashboard/login.scss";
+@import "./dashboard/error.scss";
+@import "./dashboard/footer.scss";

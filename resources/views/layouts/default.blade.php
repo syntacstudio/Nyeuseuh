@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light py-4">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('images/logo.png') }}" alt="{{ config('app.name', 'Laravel') }}" class="logo">
@@ -23,11 +23,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @if(\Auth::check())
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">{{ __('Both roles can acccess this page') }}</a>
+                            <a class="nav-link" href="{{ route('page.home') }}">HOME</a>
                         </li>
-                        @endif
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">ABOUT US</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">OUR SERVICES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">CONTACT US</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -65,10 +72,24 @@
                 </div>
             </div>
         </nav>
+    </header>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
+    <main>
+        @yield('content')
+    </main>
+
+    <footer class="bg-white">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <ul class="list-inline pt-3">
+                    <li class="list-inline-item"><a href="#">FAQs</a></li>
+                    <li class="list-inline-item"><a href="#">Contact Us</a></li>
+                    <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                </ul>
+                <div class="text-center py-4">
+                    Copyright &copy; {{ config('app.name') }}
+                </div>
+            </div>
+        </div>
+    </footer>
 </html>

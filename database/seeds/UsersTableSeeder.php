@@ -13,30 +13,30 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $role_owner = Role::where('name', 'owner')->first();
         $role_admin = Role::where('name', 'admin')->first();
-        $role_user  = Role::where('name', 'user')->first();
+        $role_operator = Role::where('name', 'operator')->first();
+        $role_customer  = Role::where('name', 'customer')->first();
 
         $owner = new User();
         $owner->name = "Willy Arisky";
-        $owner->email = "owner@test.app";
+        $owner->email = "admin@test.app";
         $owner->password = bcrypt('secret');
         $owner->save();
-        $owner->roles()->attach($role_owner);
+        $owner->roles()->attach($role_admin);
         
-        $admin = new User();
-        $admin->name = "Jhon Doe";
-        $admin->email = "admin@test.app";
-        $admin->password = bcrypt('secret');
-        $admin->save();
-        $admin->roles()->attach($role_admin);
+        $operator = new User();
+        $operator->name = "Gunaldi Tofik";
+        $operator->email = "operator@test.app";
+        $operator->password = bcrypt('secret');
+        $operator->save();
+        $operator->roles()->attach($role_operator);
 
-        $user = new User();
-        $user->name = "Gal Gadot";
-        $user->email = "user@test.app";
-        $user->password = bcrypt('secret');
-        $user->save();
-        $user->roles()->attach($role_user);
+        $customer = new User();
+        $customer->name = "Gal Gadot";
+        $customer->email = "customer@test.app";
+        $customer->password = bcrypt('secret');
+        $customer->save();
+        $customer->roles()->attach($role_customer);
 
     }
 }

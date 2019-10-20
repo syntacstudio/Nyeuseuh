@@ -2,19 +2,33 @@
 /**
  * Route the static pages
  */
-Route::view('/', 'welcome');
+Route::group(['as' => 'page.'], function () {
+    Route::view('/', 'pages.home')->name('home');
+});
 
 Auth::routes();
 
 // routes for admin
-Route::middleware(['auth', 'roles:admin'])->group(function () {
-    Route::get('/admin', 'AdminController@index')->name('admin');
+Route::group([
+    'middleware' => ['auth', 'roles:admin'],
+    'as' => 'admin.', 'prefix' => 'management'
+    ], function () {
+        Route::get('/', 'Admin\MainController@index')->name('index');
+        Route::resource('/administrator', 'Admin\AdministratorController');
 });
-// routes for user
-Route::middleware(['auth', 'roles:user'])->group(function () {
-    Route::get('/user', 'UserController@index')->name('user');
+
+// routes for operator
+Route::group([
+    'middleware' => ['auth', 'roles:operator'],
+    'as' => 'operator.', 'prefix' => 'dashboard'
+    ], function () {
+        Route::get('/', 'Operator\MainController@index')->name('index');
 });
-// routes for both roles
-Route::middleware(['auth', 'roles:admin,user'])->group(function () {
-    Route::get('/home', 'HomeController@index')->name('home');
+
+// routes for customer
+Route::group([
+    'middleware' => ['auth', 'roles:customer'],
+    'as' => 'customer.', 'prefix' => 'my'
+    ], function () {
+        Route::get('/', 'Customer\MainController@index')->name('index');
 });

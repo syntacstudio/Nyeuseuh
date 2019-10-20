@@ -1110,7 +1110,7 @@ autoprefixer@^9.4.2:
     postcss "^7.0.18"
     postcss-value-parser "^4.0.2"
 
-axios@^0.18:
+axios@^0.18.1:
   version "0.18.1"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.1.tgz#ff3f0de2e7b5d180e757ad98000f1081b87bcea3"
   integrity sha512-0BfJq4NSfQXd+SkFdrvFbG7addhYSBA2mQwISr46pD6E5iqkWg02RAs8vyTT/j0RTnoYmeXauBuSv1qKwR179g==
@@ -3865,6 +3865,11 @@ lcid@^2.0.0:
   integrity sha512-avPEb8P8EGnwXKClwsNUgryVjllcRqtMYa49NTsbQagYuT1DcXnl1915oxWjoyGrXR6zH/Y0Zc96xWsPcoDKeA==
   dependencies:
     invert-kv "^2.0.0"
+
+line-awesome@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/line-awesome/-/line-awesome-1.0.2.tgz#7f4f954ce7c1ffc8ca0e8aa575768d1f46e429cc"
+  integrity sha512-IDBNPCKlj3Rsvs7+Kt9hyC8q6r8v54LLoUgOkRiNUPWGcVK0gsgHnOaL59YLs2TK6KWFySGMwsC3jRCGI04jNQ==
 
 loader-runner@^2.4.0:
   version "2.4.0"

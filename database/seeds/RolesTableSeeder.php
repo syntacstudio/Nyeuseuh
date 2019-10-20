@@ -18,9 +18,14 @@ class RolesTableSeeder extends Seeder
         $role_admin->description = 'The god of the sytem';
         $role_admin->save();
 
+        $operator = new Role();
+        $operator->name = 'operator';
+        $operator->description = 'Operator of the system';
+        $operator->save();
+
         $role_user = new Role();
-        $role_user->name = 'user';
-        $role_user->description = 'The entity has limited access to the system';
+        $role_user->name = 'customer';
+        $role_user->description = 'Money machine of the system';
         $role_user->save();
     }
 }
