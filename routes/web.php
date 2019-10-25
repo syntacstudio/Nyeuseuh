@@ -15,6 +15,8 @@ Route::group([
     ], function () {
         Route::get('/', 'Admin\MainController@index')->name('index');
         Route::resource('/administrator', 'Admin\AdministratorController');
+        Route::resource('/operator', 'Admin\OperatorController');
+        Route::resource('/customer', 'Admin\CustomerController');
 });
 
 // routes for operator
