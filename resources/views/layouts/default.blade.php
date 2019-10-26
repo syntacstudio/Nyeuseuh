@@ -72,7 +72,7 @@
         @yield('content')
     </main>
 
-    <footer class="bg-white">
+    <footer class="bg-white border-top">
         <div class="container">
             <div class="d-flex justify-content-between align-items-center">
                 <ul class="list-inline pt-3">
