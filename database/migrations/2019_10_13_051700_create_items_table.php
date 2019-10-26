@@ -17,7 +17,7 @@ class CreateItemsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('order_id');
             $table->string('name');
-            $table->string('weight');
+            $table->string('price');
             $table->string('quantity');
             $table->string('total');
             $table->timestamps();

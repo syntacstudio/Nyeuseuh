@@ -17,9 +17,10 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->integer('user_id');
             $table->string('number');
-            $table->enum('type', ['quantity', 'weight']);
             $table->string('total');
             $table->string('estimate')->nullable();
+            $table->boolean('pickup')->default(false);
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }
