@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Price;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class PriceController extends Controller
      */
     public function index()
     {
-        //
+        $data = Price::paginate(15);
+
+        return view('admin.price.index', compact('data'));
     }
 
     /**
@@ -24,7 +27,7 @@ class PriceController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.price.create');
     }
 
     /**
@@ -35,18 +38,27 @@ class PriceController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'code' => 'required|string|unique:prices,code',
+            'name' => 'required|string|max:25',
+            'price' => 'required|integer',
+            'icon' => 'required|image',
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $filetype   = $request->icon->getClientOriginalExtension();
+        $icon       = date('ymdHis').'.'.$filetype;
+        $request->file('icon')->storeAs('public/icons', $icon);
+
+        Price::create([
+            'code' => $request->code,
+            'name' => $request->name,
+            'price' => $request->price,
+            'icon' => $icon,
+        ]);
+
+        return redirect()
+                    ->back()
+                    ->with('success', 'Price added to database.');
     }
 
     /**
@@ -57,7 +69,9 @@ class PriceController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Price::findOrFail($id);
+
+        return view('admin.price.edit', compact('data'));
     }
 
     /**
@@ -69,7 +83,32 @@ class PriceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'code' => 'required|string',
+            'name' => 'required|string|max:25',
+            'price' => 'required|integer'
+        ]);
+
+        $data = Price::findOrFail($id);
+        $data->code     = $request->input('code', $data->code);
+        $data->name     = $request->input('name', $data->name);
+        $data->price    = $request->input('price', $data->price);
+
+        if($request->hasFile('icon')){
+            $request->validate([
+                'icon' => 'required|image',
+            ]);
+            $filetype   = $request->icon->getClientOriginalExtension();
+            $icon       = date('ymdHis').'.'.$filetype;
+            $request->file('icon')->storeAs('public/icons', $icon);
+            
+            $data->icon = $icon;
+        }
+
+        $data->save();
+        return redirect()
+                    ->back()
+                    ->with('success', 'Price has been updated.');
     }
 
     /**

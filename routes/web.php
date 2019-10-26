@@ -6,6 +6,9 @@ Route::group(['as' => 'page.'], function () {
     Route::view('/', 'pages.home')->name('home');
 });
 
+// routes for guest
+Route::get('/order', 'OrderController@index')->name('order');
+
 Auth::routes();
 
 // routes for admin
@@ -17,6 +20,7 @@ Route::group([
         Route::resource('/administrator', 'Admin\AdministratorController');
         Route::resource('/operator', 'Admin\OperatorController');
         Route::resource('/customer', 'Admin\CustomerController');
+        Route::resource('/price', 'Admin\PriceController');
 });
 
 // routes for operator

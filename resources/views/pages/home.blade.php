@@ -14,6 +14,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h1>Solutions for your Dirty outfits</h1>
                     <p>Lazy to wash your outfit? Give Nyeuseuh to help you clean your dirty outfits with ease.</p>
+                    <a href="#" class="btn btn-outline-light rounded-pill mb-2 btn-lg">Order Now</a>
                 </div>
             </div>
             <div class="carousel-item">
@@ -21,6 +22,7 @@
                 <div class="carousel-caption d-none d-md-block">
                     <h1>Online Appoinment</h1>
                     <p>Too busy to visit Nyeuseuh workshop? Let your phone and laptop works for you. Order your laundry on our website and our employee will pickup your dirty outfits.</p>
+                    <a href="#" class="btn btn-outline-light rounded-pill mb-2 btn-lg">Order Now</a>
                 </div>
             </div>
         </div>

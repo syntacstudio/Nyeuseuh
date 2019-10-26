@@ -84,7 +84,7 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ route('admin.price.index') }}">
                 <i class="fas fa-funnel-dollar"></i>
                 <span>Price List</span></a>
             </li>
