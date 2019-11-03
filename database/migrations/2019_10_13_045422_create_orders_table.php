@@ -21,6 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('estimate')->nullable();
             $table->boolean('pickup')->default(false);
             $table->text('address')->nullable();
+            $table->enum('status', ['unpaid', 'paid', 'completed'])->default('unpaid');
             $table->timestamps();
         });
     }

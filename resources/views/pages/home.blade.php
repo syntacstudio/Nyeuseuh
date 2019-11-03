@@ -76,7 +76,7 @@
 <section class="customer-service pt-4 bg-white">
     <div class="container">
         <div class="row">
-            <div class="col-md-9 mx-auto">
+            <div class="col-md-10 mx-auto">
                 <div class="row">
                     <div class="col-md-4 mt-5">
                         <h1>Need Help?</h1>
@@ -114,7 +114,7 @@
                     <div class="d-flex justify-content-start">
                         <img src="{{ asset('images/testimonials/walid.jpg') }}" width="95" height="50" class="img-thumbnail rounded-circle" alt="Yael">
                         <div class="content ml-4">
-                            <p>First time for me using Nyeuseuh and I just can say "WOW" about their service, very fast and clean.</p>
+                            <p>First time for me using Nyeuseuh and I just can say "WOW" about their service.</p>
                             <p class="font-weight bold text-black-50 mb-0">- Walid Diab, Kuwait</p>
                         </div>
                     </div>

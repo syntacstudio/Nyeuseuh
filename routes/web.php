@@ -6,10 +6,9 @@ Route::group(['as' => 'page.'], function () {
     Route::view('/', 'pages.home')->name('home');
 });
 
-// routes for guest
-Route::get('/order', 'OrderController@index')->name('order');
-
 Auth::routes();
+
+Route::get('/signout', 'Auth\LoginController@logout')->name('signout');
 
 // routes for admin
 Route::group([
@@ -37,4 +36,19 @@ Route::group([
     'as' => 'customer.', 'prefix' => 'my'
     ], function () {
         Route::get('/', 'Customer\MainController@index')->name('index');
+        Route::resource('/order', 'Customer\OrderController');
+        Route::get('/setting', 'Customer\SettingController@index')->name('setting.index');
+        Route::post('/setting/changePassword', 'Customer\SettingController@changePassword')->name('setting.changePassword');
+        Route::post('/setting/changeProfile', 'Customer\SettingController@changePassword')->name('setting.changeProfile');
+});
+
+//Routes for order
+Route::get('/order', 'OrderController@index')->name('order');
+
+Route::group([
+    'middleware' => ['auth', 'roles:customer,admin,operator'],
+    'as' => 'order.'
+    ], function () {
+        Route::post('/order/store', 'OrderController@store')->name('store');
+        Route::get('/invoice/{number}', 'OrderController@invoice')->name('invoice');
 });
