@@ -66,14 +66,14 @@
         <div class="container py-5">
             <div class="row">
                 <div class="col-md-4">
-                    <ul class="list-group shadow mb-3">
-                        <li class="list-group-item">
+                    <ul class="list-group shadow mb-3 flex-row flex-md-column">
+                        <li class="list-group-item w-100">
                             <a href="{{ route('customer.index') }}">Dashboard</a>
                         </li>
-                        <li class="list-group-item">
+                        <li class="list-group-item w-100">
                             <a href="{{ route('customer.order.index') }}">My Orders</a>
                         </li>
-                        <li class="list-group-item">
+                        <li class="list-group-item w-100">
                             <a href="{{ route('customer.setting.index') }}">Settings</a>
                         </li>
                     </ul>

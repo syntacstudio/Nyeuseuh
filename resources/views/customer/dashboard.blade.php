@@ -5,7 +5,7 @@
     <div class="summary">
         <h4>Summary</h4>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4 mb-1">
                 <div class="d-flex bg-success justify-content-start p-3 rounded shadow-sm">
                     <h3><i class="text-black-50 fas fa-shopping-cart mt-2"></i></h3>
                     <span class="info text-white ml-3">
@@ -14,7 +14,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-1">
                 <div class="d-flex bg-primary justify-content-start p-3 rounded shadow-sm">
                     <h3><i class="text-black-50 fas fa-shopping-cart mt-2"></i></h3>
                     <span class="info text-white ml-3">
@@ -23,7 +23,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-1">
                 <div class="d-flex bg-danger justify-content-start p-3 rounded shadow-sm">
                     <h3><i class="text-black-50 fas fa-shopping-cart mt-2"></i></h3>
                     <span class="info text-white ml-3">

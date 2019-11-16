@@ -19,7 +19,7 @@ class OrderController extends Controller
                     ->orderBy('created_at', 'DESC')
                     ->paginate(10);
         
-        return view('customer.order.index', compact('orders'));
+        return view('customer.orders', compact('orders'));
     }
 
     /**
@@ -35,6 +35,6 @@ class OrderController extends Controller
                     ->where('number', $id)
                     ->first();
 
-        return view('customer.order.show', compact('order'));
+        return view('customer.order', compact('order'));
     }
 }
