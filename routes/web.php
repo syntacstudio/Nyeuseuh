@@ -51,6 +51,8 @@ Route::group([
         Route::post('/setting/changeProfile', 'Customer\SettingController@changePassword')->name('setting.changeProfile');
 });
 
+Route::view('/support', 'pages.contact')->name('contact');
+
 //Routes for order
 Route::get('/order', 'OrderController@index')->name('order');
 

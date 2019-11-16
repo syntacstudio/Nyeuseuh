@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'Nyeuseuh - Laundry online Tel-Aviv')
+@section('title', 'Nyeuseuh - Laundry online')
 
 @section('content')
 <section class="banner">

@@ -102,3 +102,23 @@ $(document).ready(() => {
         });
     }
 });
+
+/**
+ * Contact
+ */
+$('#form-contact').submit(function(e){
+    e.preventDefault();
+
+    if($('#email').val() == ''){
+        swal('Oops', 'Email address cannot be empty', 'warning');
+    } else if($('#phone_number').val() == ''){
+        swal('Oops', 'Phone number cannot be empty', 'warning');
+    } else if($('#name').val() == ''){
+        swal('Oops', 'Name cannot be empty', 'warning');
+    } else if($('#message').val() == ''){
+        swal('Oops', 'Message cannot be empty', 'warning');
+    } else {
+        swal('Thank you', 'Your message has been received. We will assist your sortly.', 'success');
+    }
+    
+});
