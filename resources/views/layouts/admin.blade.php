@@ -58,17 +58,17 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <li class="nav-item">
+                <li class="nav-item {{ (Request::is('management/customers')) ? 'active' : null }}">
                     <a class="nav-link pb-0" href="{{ route('admin.customers') }}">
                     <i class="fas fa-user-circle"></i>
                     <span>Customer</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ (Request::is('management/operator')) ? 'active' : null }}">
                     <a class="nav-link pb-0" href="{{ route('admin.operator.index') }}">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <span>Operator</span></a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ (Request::is('management/administrator')) ? 'active' : null }}">
                     <a class="nav-link" href="{{ route('admin.administrator.index') }}">
                     <i class="fas fa-user-cog"></i>
                     <span>Administrator</span></a>
@@ -83,7 +83,7 @@
             </div>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            <li class="nav-item {{ (Request::is('management/price')) ? 'active' : null }}">
                 <a class="nav-link" href="{{ route('admin.price.index') }}">
                 <i class="fas fa-funnel-dollar"></i>
                 <span>Price List</span></a>
@@ -115,13 +115,13 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    <form method="get" action="{{ route('admin.orders') }}"
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." name="s"
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
+                                <button class="btn btn-primary" type="submit">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
                             </div>
