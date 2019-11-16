@@ -28,6 +28,11 @@ Route::group([
     'as' => 'operator.', 'prefix' => 'dashboard'
     ], function () {
         Route::get('/', 'Operator\MainController@index')->name('index');
+        Route::get('/orders', 'Operator\OrderController@index')->name('orders');
+        Route::get('/order/{number}', 'Operator\OrderController@show')->name('order');
+        Route::patch('/order/{number}', 'Operator\OrderController@update')->name('order.update');
+        Route::get('/customers', 'Operator\CustomerController@index')->name('customers');
+        Route::get('/customer/{id}', 'Operator\CustomerController@show')->name('customer');
 });
 
 // routes for customer
