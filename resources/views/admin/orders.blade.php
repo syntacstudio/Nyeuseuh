@@ -1,4 +1,4 @@
-@extends('layouts.operator')
+@extends('layouts.admin')
 
 @section('content')
     <div class="recent-orders">
@@ -54,7 +54,7 @@
                                 <td>{{ numToRupiah($item->total) }}</td>
                                 <td>{{ ($item->pickup) ? 'Yes' : 'No' }}</td>
                                 <td>
-                                    <a href="{{ route('operator.order', $item->number) }}" class="btn btn-sm btn-primary shadow">
+                                    <a href="{{ route('admin.order', $item->number) }}" class="btn btn-sm btn-primary shadow">
                                         <i class="fas fa-eye"></i>
                                     </a>
                                 </td>

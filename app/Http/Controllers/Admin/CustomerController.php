@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\User;
 use App\Role;
-use App\Http\Controllers\Controller;
+use App\User;
+use App\Order;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CustomerController extends Controller
 {
@@ -20,28 +21,7 @@ class CustomerController extends Controller
                         $query->where('name', 'customer');
                     })->paginate(10);
         
-        return view('admin.customer.index', compact('data'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('admin.customers', compact('data'));
     }
 
     /**
@@ -52,30 +32,9 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        $customer = User::find($id);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
+        return view('admin.customer', compact('customer'));
     }
 
     /**
@@ -86,6 +45,12 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user   = User::findOrFail($id);
+        $orders = Order::where('user_id', $id)->delete();
+        $user->delete();
+
+        return redirect()
+                    ->route('admin.customers')
+                    ->with('success', 'Customer account has been deleted.');
     }
 }

@@ -16,9 +16,13 @@ Route::group([
     'as' => 'admin.', 'prefix' => 'management'
     ], function () {
         Route::get('/', 'Admin\MainController@index')->name('index');
+        Route::get('/orders', 'Admin\OrderController@index')->name('orders');
+        Route::get('/order/{number}', 'Admin\OrderController@show')->name('order');
+        Route::get('/customers', 'Admin\CustomerController@index')->name('customers');
+        Route::get('/customer/{id}', 'Admin\CustomerController@show')->name('customer');
+        Route::get('/customer/{id}/destroy', 'Admin\CustomerController@destroy')->name('customer.destroy');
         Route::resource('/administrator', 'Admin\AdministratorController');
         Route::resource('/operator', 'Admin\OperatorController');
-        Route::resource('/customer', 'Admin\CustomerController');
         Route::resource('/price', 'Admin\PriceController');
 });
 

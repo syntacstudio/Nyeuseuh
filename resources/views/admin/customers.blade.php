@@ -4,7 +4,7 @@
     @include('components.alerts')
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary pt-2">Customer List</h6>
+            <h5 class="m-0 mt-1 text-primary">Customers</h5>
         </div>
         <div class="card-body p-0">
             <table class="table table-hover mb-0">
@@ -13,6 +13,7 @@
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
+                        <th>Orders</th>
                         <th>Created at</th>
                         <th></th>
                     </tr>
@@ -23,20 +24,15 @@
                         <td>#</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->email }}</td>
+                        <td>{{ $item->orders()->count() }} orders</td>
                         <td>{{ $item->created_at }}</td>
                         <td class="text-right">
-                            <a href="{{ route('admin.operator.edit', $item->id) }}" class="btn btn-sm btn-primary">
-                                <i class="fas fa-edit"></i>
+                            <a href="{{ route('admin.customer', $item->id) }}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-eye"></i>
+                            </a> 
+                            <a onclick="return confirm('Are you sure want to delete {{ $item->name }} account?')" href="{{ route('admin.customer.destroy', $item->id) }}" class="btn btn-sm btn-danger">
+                                <i class="fas fa-trash"></i>
                             </a>
-                            @if($item->id != Auth::user()->id)
-                            <form class="d-inline" action="{{ route('admin.operator.destroy', $item->id) }}" method="POST">
-                                @method('DELETE')
-                                @csrf
-                                <button type="submit" onclick="return confirm('Are you sure want to remove {{ $item->name }}?')" class="btn btn-sm btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </form>
-                            @endif
                         </td>
                     </tr>
                     @endforeach

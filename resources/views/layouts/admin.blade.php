@@ -32,7 +32,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item {{ (Request::is('management')) ? 'active' : null }}">
                 <a class="nav-link" href="{{ route('admin.index') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
@@ -42,8 +42,8 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="{{ route('admin.index') }}">
+            <li class="nav-item {{ (Request::is('management/orders')) ? 'active' : null }}">
+                <a class="nav-link" href="{{ route('admin.orders') }}">
                 <i class="fas fa-cart-arrow-down"></i>
                 <span>Orders</span></a>
             </li>
@@ -59,7 +59,7 @@
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <li class="nav-item">
-                    <a class="nav-link pb-0" href="{{ route('admin.customer.index') }}">
+                    <a class="nav-link pb-0" href="{{ route('admin.customers') }}">
                     <i class="fas fa-user-circle"></i>
                     <span>Customer</span></a>
                 </li>
