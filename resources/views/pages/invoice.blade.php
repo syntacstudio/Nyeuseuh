@@ -1,5 +1,5 @@
 @extends('layouts.default')
-@section('title', 'Nyeuseuh - Laundry online Tel-Aviv')
+@section('title', $order->number.' - Nyeuseuh')
 
 @section('content')
 <section class="order py-4 @if(!Auth::check()) guest @endif">
