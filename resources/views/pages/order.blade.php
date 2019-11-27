@@ -26,7 +26,7 @@
                         <tbody>
                         @foreach ($data as $item)
                             <tr>
-                                <td class="align-middle"><img src="{{ asset('icons/'.$item->icon) }}" class="img-thumbnail" width="51px"></td>
+                                <td class="align-middle"><img src="{{ asset('storage/icons/'.$item->icon) }}" class="img-thumbnail" width="51px"></td>
                                 <td class="align-middle">{{ $item->name }}</td>
                                 <td class="align-middle">{{ numToRupiah($item->price) }}</td>
                                 <td class="align-middle">
