@@ -26,7 +26,7 @@
                 <tbody>
                 @foreach ($data as $price)
                     <tr>
-                        <td><img src="{{ asset('icons/'.$price->icon) }}" class="img-thumbnail" width="51px"></td>
+                        <td><img src="{{ asset('storage/icons/'.$price->icon) }}" class="img-thumbnail" width="51px"></td>
                         <td class="align-middle">{{ $price->code }}</td>
                         <td class="align-middle">{{ $price->name }}</td>
                         <td class="align-middle">{{ $price->price }}</td>
