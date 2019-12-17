@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.11.2",
-        "sweetalert": "^2.1.2"
+        "sweetalert": "^2.1.2",
+        "turbolinks": "^5.2.0"
     }
 }
