@@ -7,9 +7,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('dashboard/js/sb-admin-2.min.js') }}" defer></script>
+    <script src="{{ asset('dashboard_template/js/sb-admin-2.min.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/dashboard_template.css') }}" rel="stylesheet">
 </head>
 
 <body id="page-top">
